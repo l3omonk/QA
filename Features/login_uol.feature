@@ -1,0 +1,25 @@
+Feature: Funcionalidade de login na aplicação do site da UOL
+  Scenario: Login com sucesso de usuario
+    Given que estou no site "https://www.uol.com.br"
+    And que eu clico no botao "conta_uol"
+    And que eu clico no botao "entrar_com_seu_email"
+    And eu preencho o campo "email" com "45914471888"
+    And eu preencho o campo "senha" com "123mudar"
+    When eu clico em "entrar"
+    Then eu espero ver "login realizado"
+  Scenario: Login de usuario com insucesso 
+    Given que estou no site "https://www.uol.com.br"
+    And que eu clico no botao "conta_uol"
+    And que eu clico no botao "entrar_com_seu_email"
+    And eu preencho o campo "email" com "45914471888"
+    And eu preencho o campo "senha" com "123mudar"
+    When eu clico em "entrar"
+    Then eu espero ver o texto "Usuário ou senha inválidos"
+  Scenario: Login de usuario com insucesso devido a falha no servico
+    Given que estou no site "https://www.uol.com.br"
+    And que eu clico no botao "conta_uol"
+    And que eu clico no botao "entrar_com_seu_email"
+    And eu preencho o campo "email" com "45914471888"
+    And eu preencho o campo "senha" com "123mudar"
+    When eu clico em "entrar"
+    Then eu espero ver o texto "serviço indisponivel"
